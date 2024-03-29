@@ -2,9 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Car</title>
-    <style>table th, table td {padding: 5px;}</style>
+    <style>table th, table td {
+        padding: 5px;
+    }</style>
 </head>
 
 <body>
@@ -17,7 +19,7 @@
         <th>series</th>
     </tr>
 
-    <tr th:each="lst : ${list}">
+    <tr th:each="lst : ${cars}">
         <td th:utext="${lst.model}">model</td>
         <td th:utext="${lst.color}">color</td>
         <td th:utext="${lst.series}">series</td>
