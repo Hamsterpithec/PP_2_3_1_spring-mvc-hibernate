@@ -1,22 +1,18 @@
 package web.servise;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import web.model.Car;
 
 import java.util.List;
 import java.util.stream.Collectors;
-@Component
+
+@Service
 public class CarServiceImpl implements CarService {
 
-
+    @Override
     public List<Car> carsCount(int number, List<Car> carList) {
-        List<Car> result;
-        if (number == 0 || number > 5) {
-            result = carList;
-        } else {
-            result = carList.stream().limit(number).collect(Collectors.toList());
-        }
-        return result;
+        if (number == 0 || number > 5) return carList;
+        return carList.stream().limit(number).collect(Collectors.toList());
     }
 
 
