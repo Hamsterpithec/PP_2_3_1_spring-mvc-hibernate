@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8"/>
-    <title>Car</title>
+    <title>User</title>
     <style>table th, table td {
         padding: 5px;
     }</style>
 </head>
 
 <body>
-<h1>Cars</h1>
+<h1>Users</h1>
 
 <table border="1">
     <tr>
@@ -19,7 +19,7 @@
         <th>series</th>
     </tr>
 
-    <tr th:each="lst : ${cars}">
+    <tr th:each="lst : ${user}">
         <td th:utext="${lst.model}">model</td>
         <td th:utext="${lst.color}">color</td>
         <td th:utext="${lst.series}">series</td>
