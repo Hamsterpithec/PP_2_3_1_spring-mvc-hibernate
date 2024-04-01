@@ -5,42 +5,44 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class User {
-
-    private String model;
-    private String color;
-    private int series;
+    
+    private int id;
+    private String name;
+    private String lastname;
+    
 
 
     public User() {
     }
 
-    public User(String model, String color, int series) {
-        this.color = color;
-        this.series = series;
-        this.model = model;
+    public User(int id, String name, String lastname) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        
     }
 
-    public String getModel() {
-        return model;
+    public String getName() {
+        return name;
     }
 
-    public void setModel(String model) {
-        this.model = model;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getColor() {
-        return color;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public int getSeries() {
-        return series;
+    public int getId() {
+        return id;
     }
 
-    public void setSeries(int series) {
-        this.series = series;
+    public void setId(int id) {
+        this.id = id;
     }
 }

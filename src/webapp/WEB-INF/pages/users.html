@@ -14,15 +14,16 @@
 
 <table border="1">
     <tr>
-        <th>model</th>
-        <th>color</th>
-        <th>series</th>
+        <th>id</th>
+        <th>name</th>
+        <th>lastname</th>
     </tr>
 
     <tr th:each="lst : ${user}">
-        <td th:utext="${lst.model}">model</td>
-        <td th:utext="${lst.color}">color</td>
-        <td th:utext="${lst.series}">series</td>
+        <td th:utext="${lst.id}">series</td>
+        <td th:utext="${lst.name}">model</td>
+        <td th:utext="${lst.lastname}">color</td>
+
     </tr>
 
 </table>
