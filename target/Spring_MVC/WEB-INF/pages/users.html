@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>User</title>
+    <style>table th, table td {
+        padding: 5px;
+    }</style>
+</head>
+
+<body>
+<h1>Users</h1>
+
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>lastname</th>
+    </tr>
+
+    <tr th:each="lst : ${user}">
+        <td th:utext="${lst.id}">series</td>
+        <td th:utext="${lst.name}">model</td>
+        <td th:utext="${lst.lastname}">color</td>
+        
+    </tr>
+
+</table>
+
+</body>
+
+</html>
