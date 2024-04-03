@@ -17,12 +17,14 @@
         <th>id</th>
         <th>name</th>
         <th>lastname</th>
+        <th>email</th>
     </tr>
 
-    <tr th:each="lst : ${user}">
-        <td th:utext="${lst.id}">series</td>
-        <td th:utext="${lst.name}">model</td>
-        <td th:utext="${lst.lastname}">color</td>
+    <tr th:each="lst : ${users}">
+        <td th:utext="${lst.id}">id</td>
+        <td th:utext="${lst.name}">name</td>
+        <td th:utext="${lst.lastname}">lastname</td>
+        <td th:utext="${lst.email}">email</td>
 
     </tr>
 
