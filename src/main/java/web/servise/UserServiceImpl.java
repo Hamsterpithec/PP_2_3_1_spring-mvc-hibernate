@@ -19,9 +19,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> usersCount(int number) {
         List<User> userList = userDao.initUser();
-        if (number > 5) {
-            return userList;
-        }
         return userList.stream().limit(number).collect(Collectors.toList());
     }
 }
