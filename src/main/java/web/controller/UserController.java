@@ -11,7 +11,6 @@ import web.model.User;
 import web.servise.UserService;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Controller
@@ -51,14 +50,9 @@ public class UserController {
 
     @GetMapping("/edit")
     public String editUserForm(@RequestParam("id") Long id, Model model) {
-        Optional<User> userById = userService.findById(id);
 
-        if (userById.isPresent()) {
-            model.addAttribute("user", userById.get());
-            return "user/edit_user";
-        } else {
-            return "redirect:/users";
-        }
+        model.addAttribute("user", userService.findById(id));
+        return "redirect:/users";
     }
 
     @PostMapping("/edit")

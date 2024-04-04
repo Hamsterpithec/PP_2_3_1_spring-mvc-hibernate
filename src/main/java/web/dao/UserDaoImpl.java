@@ -6,7 +6,6 @@ import web.model.User;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -20,9 +19,8 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> findById(Long id) {
-        User user = entityManager.find(User.class, id);
-        return Optional.ofNullable(user);
+    public User findById(Long id) {
+        return entityManager.find(User.class, id);
     }
 
     @Override
@@ -32,8 +30,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void deleteUser(long id) {
-        Optional<User> userById = findById(id);
-        userById.ifPresent(user -> entityManager.remove(user));
+        entityManager.remove(id);
     }
 
     @Override
