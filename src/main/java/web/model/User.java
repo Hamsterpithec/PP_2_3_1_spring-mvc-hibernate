@@ -19,17 +19,17 @@ public class User {
     @Column(name = "last_name")
     private String lastname;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "age")
+    private int age;
 
 
     public User() {
     }
 
-    public User(String name, String lastname, String email) {
+    public User(String name, String lastname, int age) {
         this.name = name;
         this.lastname = lastname;
-        this.email=email;
+        this.age = age;
 
     }
 
@@ -57,12 +57,12 @@ public class User {
         this.id = id;
     }
 
-    public String getEmail() {
-        return email;
+    public int getAge() {
+        return age;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
@@ -71,7 +71,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", email='" + email + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }

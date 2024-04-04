@@ -5,7 +5,7 @@ import web.dao.UserDao;
 import web.model.User;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,9 +16,29 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
+
     @Override
-    public List<User> usersCount(int number) {
-        List<User> userList = userDao.initUser();
-        return userList.stream().limit(number).collect(Collectors.toList());
+    public List<User> getAllUsers() {
+        return userDao.getAllUsers();
+    }
+
+    @Override
+    public Optional<User> findById(Long id) {
+        return userDao.findById(id);
+    }
+
+    @Override
+    public void addUser(User user) {
+        userDao.addUser(user);
+    }
+
+    @Override
+    public void deleteUser(long id) {
+        userDao.deleteUser(id);
+    }
+
+    @Override
+    public void updateUser(User user) {
+        userDao.updateUser(user);
     }
 }
