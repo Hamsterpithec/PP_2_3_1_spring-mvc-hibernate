@@ -1,41 +1,41 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>All users</title>
+    <meta charset="UTF-8"/>
+    <title>Users</title>
+    <style>table th, table td {
+        padding: 5px;
+    }</style>
 </head>
+
 <body>
-<h2>Users</h2>
-<table>
-    <thead>
+<h1>Users</h1>
+
+<table border="1">
     <tr>
         <th>ID</th>
         <th>Name</th>
-        <th>Last name</th>
+        <th>Last Name</th>
         <th>Age</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr var="users" items="${users}">
-    <tr th:each="users : ${users}">
-        <td th:text="${users.id}"></td>
-        <td th:text="${users.name}"></td>
-        <td th:text="${users.lastname}"></td>
-        <td th:text="${users.age}"></td>
+    <tr var="user" items="${users}">
+    <tr th:each="users : ${user}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.lastname}"></td>
+        <td th:text="${user.age}"></td>
         <td>
             <form th:action="@{/users/edit}">
-                <button type="submit" th:name="id" th:value="${users.id}">Edit</button>
+                <button type="submit" th:name="id" th:value="${user.id}">Edit</button>
             </form>
         </td>
         <td>
             <form method="post" th:action="@{/users/delete}">
-                <button type="submit" th:name="id" th:value="${users.id}">Delete</button>
+                <button type="submit" th:name="id" th:value="${user.id}">Delete</button>
             </form>
         </td>
     </tr>
-    </tr>
-    </tbody>
 </table>
 <a href="/users/new">Create new user</a>
 </body>
