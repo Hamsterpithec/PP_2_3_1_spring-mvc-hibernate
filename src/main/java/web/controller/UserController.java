@@ -3,6 +3,7 @@ package web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,44 +33,44 @@ public class UserController {
     }
 
     @GetMapping("/new")
-    public String createUserForm(@ModelAttribute("user") User user) {
-        System.out.println("new user");
+    public String createUserForm(@ModelAttribute("users") User user) {
+        System.out.println("new users");
         return "create_user";
     }
 
     @PostMapping
-    public String createUser(@ModelAttribute("user")  User user,
+    public String createUser(@ModelAttribute("users") User user,
                              BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "create_user";
+            return "user/user-create";
         }
 
         userService.addUser(user);
-        return "users";
+        return "redirect:/users";
     }
 
     @GetMapping("/edit")
     public String editUserForm(@RequestParam("id") Long id, Model model) {
 
-        model.addAttribute("user", userService.findById(id));
+        model.addAttribute("users", userService.findById(id));
         return "users";
     }
 
     @PostMapping("/edit")
-    public String editUser(@ModelAttribute("user") User user,
+    public String editUser(@ModelAttribute("users") User user,
                            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "edit_user";
         }
 
         userService.updateUser(user);
-        return "users";
+        return "redirect:/users";
     }
 
     @PostMapping("/delete")
     public String deleteUser(@RequestParam("id") Long id) {
         userService.deleteUser(id);
-        return "users";
+        return "redirect:/users";
     }
 }
 
