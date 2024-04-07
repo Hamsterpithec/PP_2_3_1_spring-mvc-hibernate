@@ -20,7 +20,7 @@
         <th>Age</th>
     </tr>
     <tr var="user" items="${users}">
-    <tr th:each="users : ${user}">
+    <tr th:each="user : ${users}">
         <td th:text="${user.id}"></td>
         <td th:text="${user.name}"></td>
         <td th:text="${user.lastname}"></td>
