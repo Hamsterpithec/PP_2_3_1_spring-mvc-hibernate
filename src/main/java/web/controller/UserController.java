@@ -31,7 +31,6 @@ public class UserController {
 
     @GetMapping("/new")
     public String createUserForm(@ModelAttribute("users") User user) {
-        System.out.println("new users");
         return "create_user";
     }
 
