@@ -50,7 +50,7 @@ public class UserController {
     public String editUserForm(@RequestParam("id") Long id, Model model) {
 
         model.addAttribute("users", userService.findById(id));
-        return "users";
+        return "edit_user";
     }
 
     @PostMapping("/edit")
