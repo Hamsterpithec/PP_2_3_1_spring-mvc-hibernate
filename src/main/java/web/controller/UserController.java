@@ -38,7 +38,7 @@ public class UserController {
     public String createUser(@ModelAttribute("users") User user,
                              BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "user/user-create";
+            return "create_user";
         }
 
         userService.addUser(user);
